@@ -1,14 +1,12 @@
+import axios from 'axios'
 import {
 	FETCH_USERS
 } from './types.js'
 
 export function fetchUsers(){
-	return {
+	const request = axios.get("http://jsonplaceholder.typicode.com/users")
+  return {
 		type:FETCH_USERS,
-		payload: [
-		{ name: 'Justin'},
-		{ name: 'Kevin'},
-		{ name: 'Alex'}
-		]
+		payload: request
 	};
 }
