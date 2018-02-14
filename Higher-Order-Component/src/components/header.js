@@ -5,7 +5,11 @@ import * as actions from '../actions';
 
 class Header extends Component {
   authButton() {
-    return <button> Sign in </button>
+    if (this.props.authenticated) {
+      return <button onClick={() => this.props.authenticate(false)}>Sign Out</button>;
+    }
+
+    return <button onClick={() => this.props.authenticate(true)}>Sign In</button>;
   }
 
   render() {
